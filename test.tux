@@ -1,3 +1,2 @@
-file: Info
-welcometothenewage: ToTHeNEwAge
-WelcomeToTheNewAge: Newage
+String: welcome:john
+WelcomeToTheNewAge: [Welcome, To, New Age]

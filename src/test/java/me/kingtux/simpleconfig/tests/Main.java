@@ -2,6 +2,8 @@ package me.kingtux.simpleconfig.tests;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import me.kingtux.simpleconfig.SimpleConfig;
 
 public class Main {
@@ -15,8 +17,15 @@ public class Main {
     }
     simpleConfig = new SimpleConfig(file);
     simpleConfig.dump();
-    simpleConfig.set("WelcomeToTheNewAge", "Newage");
+    List<String> ls = new ArrayList<>();
+    ls.add("Welcome");
+    ls.add("To");
+    ls.add("New Age");
+    System.out.println(simpleConfig.getString("file"));
+    simpleConfig.set("WelcomeToTheNewAge", ls);
     simpleConfig.reload();
-    simpleConfig.dump();
+    for (String s : simpleConfig.getStringList("WelcomeToTheNewAge")) {
+      System.out.println(s);
+    }
   }
 }
