@@ -21,7 +21,7 @@ public class FileParser {
     String line = "";
     while ((line = br.readLine()) != null) {
       String[] split = line.split(": ", 2);
-      theFull.put(split[0], split[1]);
+      theFull.put(split[0].toLowerCase(), split[1]);
     }
     return theFull;
   }

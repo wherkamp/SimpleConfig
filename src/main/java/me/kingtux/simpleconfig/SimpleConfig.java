@@ -10,11 +10,12 @@ public class SimpleConfig {
 
   private Map<String, Object> fileContents;
   private FileParser fileParser;
+  private SimpleWriter simpleWriter;
 
   public SimpleConfig(File file) throws IOException {
     fileParser = new FileParser(file);
     fileContents = fileParser.loadFromFile();
-
+    simpleWriter = new SimpleWriter(file);
   }
 
   public void dump() {
@@ -23,11 +24,16 @@ public class SimpleConfig {
     }
   }
 
-  public void set(String path, Object value) {
+  public void set(String path, Object value) throws IOException {
     fileContents.put(path, value);
+    simpleWriter.write(fileContents);
   }
 
   public void save() {
 
+  }
+
+  public void reload() throws IOException {
+    fileContents = fileParser.loadFromFile();
   }
 }

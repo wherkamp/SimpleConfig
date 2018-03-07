@@ -15,5 +15,8 @@ public class Main {
     }
     simpleConfig = new SimpleConfig(file);
     simpleConfig.dump();
+    simpleConfig.set("WelcomeToTheNewAge", "Newage");
+    simpleConfig.reload();
+    simpleConfig.dump();
   }
 }
